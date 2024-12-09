@@ -5,8 +5,11 @@ import MedicationIcon from '@mui/icons-material/Medication';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import SettingsIcon from '@mui/icons-material/Settings';
 import EventIcon from '@mui/icons-material/Event';
+import { useNavigate } from 'react-router-dom';
 
 const FooterIcon = () => {
+  const navigate = useNavigate();
+
   const menuItems = [
     {
       label: 'Home',
@@ -24,14 +27,14 @@ const FooterIcon = () => {
       path: '/medications',
     },
     {
-      label: 'Equalizer',
+      label: 'Statistics',
       icon: <ShowChartIcon />,
-      path: '/equalizerIcon',
+      path: '/statistics',
     },
     {
-      label: 'Settings',
+      label: 'Setting',
       icon: <SettingsIcon />,
-      path: '/settings',
+      path: '/setting',
     },
   ];
 
@@ -68,9 +71,12 @@ const FooterIcon = () => {
             key={item.label}
             sx={{
               '& .MuiBottomNavigationAction-label': {
-                fontSize: '0.4rem',
+                fontSize: '0.5rem',
               },
               color: 'primary.500',
+            }}
+            onClick={() => {
+              navigate(item.path);
             }}
           />
         ),
