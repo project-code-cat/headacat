@@ -1,3 +1,4 @@
+import { Paper } from '@mui/material';
 import React from 'react';
 
 interface Props {
@@ -5,7 +6,7 @@ interface Props {
 }
 
 const ContentComponent = ({ children }: Props) => {
-  return <div>{children}</div>;
+  return <Paper sx={{ width: '100vw', height: '100vh' }}>{children}</Paper>;
 };
 
 export default ContentComponent;
