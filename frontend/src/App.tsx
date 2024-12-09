@@ -55,23 +55,17 @@
 //   );
 // }
 
-import React, {StrictMode} from 'react';
-import {BrowserRouter} from 'react-router-dom';
-import {ThemeProvider} from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import {theme} from './app/layout/theme';
+import React, { StrictMode } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import BaseRoutes from './app/routes/BaseRouter';
 import './i18n/i18n';
 
 function App(): React.JSX.Element {
   return (
     <StrictMode>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <BrowserRouter>
-          <BaseRoutes />
-        </BrowserRouter>
-      </ThemeProvider>
+      <BrowserRouter>
+        <BaseRoutes />
+      </BrowserRouter>
     </StrictMode>
   );
 }

@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AppBar, Box, IconButton, Toolbar } from '@mui/material';
-// import MenuIcon from '@mui/icons-material/Menu';
 import FlareIcon from '@mui/icons-material/Flare';
 import DateRangeIcon from '@mui/icons-material/DateRange';
+import { ColorModeContext } from '../theme/ColorModeProvider';
+
 const logo = '/svg/HeadaCat.svg';
 
 const Header = () => {
+  // const theme = useTheme();
+  const colorMode = useContext(ColorModeContext);
+
   return (
     <AppBar
       position="static"
-      enableColorOnDark
-      // color="primary"
-      sx={{ backgroundColor: 'white', height: '50px' }}>
+      // enableColorOnDark
+      sx={{
+        height: '50px',
+        bgcolor: theme => theme.palette.background.default,
+      }}>
       <Toolbar>
         <Box
           sx={{
@@ -26,12 +32,13 @@ const Header = () => {
             edge="start"
             aria-label="menu"
             sx={{
-              color: '#E0BBE4',
+              color: 'primary.main',
               display: 'flex',
               alignItems: 'center',
               mb: '7px',
               pl: '10px',
-            }}>
+            }}
+            onClick={colorMode.toggleColorMode}>
             <FlareIcon sx={{ fontSize: '1.2rem' }} />
           </IconButton>
 
@@ -56,7 +63,7 @@ const Header = () => {
             edge="end"
             aria-label="date"
             sx={{
-              color: '#E0BBE4',
+              color: 'primary.main',
               display: 'flex',
               alignItems: 'center',
               mb: '7px',
