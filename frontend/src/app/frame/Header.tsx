@@ -4,7 +4,8 @@ import FlareIcon from '@mui/icons-material/Flare';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import { ColorModeContext } from '../theme/ColorModeProvider';
 
-const logo = '/svg/HeadaCat.svg';
+// const logo = '/svg/HeadaCat.svg';
+const logo = '/headacat/svg/HeadaCat.svg';
 
 const Header = () => {
   // const theme = useTheme();
@@ -49,10 +50,11 @@ const Header = () => {
               top: '50%',
               transform: 'translate(-50%, -50%)',
             }}>
-            <img
+            <Box
+              component="img"
               src={logo}
               alt="logo"
-              style={{
+              sx={{
                 width: '8rem',
                 height: 'auto',
               }}
