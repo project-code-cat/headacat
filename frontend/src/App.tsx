@@ -63,7 +63,7 @@ import './i18n/i18n';
 function App(): React.JSX.Element {
   return (
     <StrictMode>
-      <BrowserRouter>
+      <BrowserRouter basename="/headacat">
         <BaseRoutes />
       </BrowserRouter>
     </StrictMode>
