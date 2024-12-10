@@ -20,7 +20,6 @@
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
     "@expo/webpack-config": "^19.0.1",
-    "@mui/icons-material": "^6.1.10",
     "@mui/material": "^6.1.10",
     "@react-native-community/hooks": "^3.0.0",
     "i18next": "^24.0.5",

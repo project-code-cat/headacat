@@ -4,7 +4,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { settingList } from '../lib/SettingList';
 import { Divider } from '@mui/material';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { IoIosArrowForward } from 'react-icons/io';
 
 interface Props {
   setContent: (content: React.ReactNode) => void;
@@ -30,7 +30,7 @@ const SettingList = (props: Props) => {
             <ListItemIcon>{item.icon}</ListItemIcon>
             <ListItemText primary={item.label} />
             <ListItemIcon sx={{ mr: -4.5 }}>
-              <ArrowForwardIosIcon sx={{ fontSize: '1rem' }} />
+              <IoIosArrowForward size={20} />
             </ListItemIcon>
           </ListItemButton>
         </div>

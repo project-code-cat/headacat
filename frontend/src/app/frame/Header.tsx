@@ -1,20 +1,18 @@
 import React, { useContext } from 'react';
 import { AppBar, Box, IconButton, Toolbar } from '@mui/material';
-import FlareIcon from '@mui/icons-material/Flare';
-import DateRangeIcon from '@mui/icons-material/DateRange';
+import { GoNorthStar } from 'react-icons/go';
 import { ColorModeContext } from '../theme/ColorModeProvider';
+import { FaCalendarDay } from 'react-icons/fa6';
+import { VscColorMode } from 'react-icons/vsc';
 
-// const logo = '/svg/HeadaCat.svg';
 const logo = '/headacat/svg/HeadaCat.svg';
 
 const Header = () => {
-  // const theme = useTheme();
   const colorMode = useContext(ColorModeContext);
 
   return (
     <AppBar
       position="static"
-      // enableColorOnDark
       sx={{
         height: '50px',
         bgcolor: theme => theme.palette.background.default,
@@ -38,9 +36,8 @@ const Header = () => {
               alignItems: 'center',
               mb: '7px',
               pl: '10px',
-            }}
-            onClick={colorMode.toggleColorMode}>
-            <FlareIcon sx={{ fontSize: '1.2rem' }} />
+            }}>
+            <GoNorthStar size={20} />
           </IconButton>
 
           <Box
@@ -69,9 +66,22 @@ const Header = () => {
               display: 'flex',
               alignItems: 'center',
               mb: '7px',
+              mr: '-300px',
+            }}
+            onClick={colorMode.toggleColorMode}>
+            <VscColorMode size={20} />
+          </IconButton>
+          <IconButton
+            edge="end"
+            aria-label="date"
+            sx={{
+              color: 'primary.main',
+              display: 'flex',
+              alignItems: 'center',
+              mb: '7px',
               pr: '10px',
             }}>
-            <DateRangeIcon sx={{ fontSize: '1.2rem' }} />
+            <FaCalendarDay size={20} />
           </IconButton>
         </Box>
       </Toolbar>

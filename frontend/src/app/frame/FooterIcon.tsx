@@ -1,9 +1,5 @@
 import React from 'react';
 import { BottomNavigationAction } from '@mui/material';
-// import HomeIcon from '@mui/icons-material/Home';
-// import MedicationIcon from '@mui/icons-material/Medication';
-// import SettingsIcon from '@mui/icons-material/Settings';
-// import EventIcon from '@mui/icons-material/Event';
 import { useLocation, useNavigate } from 'react-router-dom';
 import SwipeDrawer from '../../widgets/drawer/SwipeableDrawer';
 import Medications from '../../pages/medications';

@@ -5,7 +5,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { Avatar, Paper } from '@mui/material';
 import useUserStore from '../../../shared/stores/useUserStore';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { IoIosArrowForward } from 'react-icons/io';
 import SettingList from './SettingList';
 import SwipeDrawer from '../../../widgets/drawer/SwipeableDrawer';
 import User from './user';
@@ -35,7 +35,7 @@ const Setting = () => {
           </ListItemIcon>
           <ListItemText primary={userName} />
           <ListItemIcon sx={{ mr: -4.5 }}>
-            <ArrowForwardIosIcon sx={{ fontSize: '1rem' }} />
+            <IoIosArrowForward size={20} />
           </ListItemIcon>
         </ListItemButton>
         <SettingList setContent={setContent} setState={setState} />
