@@ -3,41 +3,47 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { settingList } from '../lib/SettingList';
-import { Avatar, Divider } from '@mui/material';
+import { Avatar, Paper } from '@mui/material';
 import useUserStore from '../../../shared/stores/useUserStore';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import SettingList from './SettingList';
+import SwipeDrawer from '../../../widgets/drawer/SwipeableDrawer';
+import User from './user';
 
 const Setting = () => {
+  const [state, setState] = React.useState<boolean>(false);
+  const [content, setContent] = React.useState<React.ReactNode>(null);
+
   const { userName } = useUserStore();
 
+  const settingfn = () => {
+    setContent(<User />);
+    setState(true);
+  };
+
   return (
-    <List
-      sx={{ width: '100vw', bgcolor: 'background.paper' }}
-      component="nav"
-      aria-labelledby="nested-list-subheader">
-      <ListItemButton sx={{ width: '100%', height: '75px' }}>
-        <ListItemIcon>
-          <Avatar />
-        </ListItemIcon>
-        <ListItemText primary={userName} />
-        <ListItemIcon sx={{ mr: -4.5 }}>
-          <ArrowForwardIosIcon sx={{ fontSize: '1rem' }} />
-        </ListItemIcon>
-      </ListItemButton>
-      {settingList.map((item, i) => (
-        <div key={i}>
-          <Divider />
-          <ListItemButton sx={{ width: '100%', height: '75px' }}>
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText primary={item.label} />
-            <ListItemIcon sx={{ mr: -4.5 }}>
-              <ArrowForwardIosIcon sx={{ fontSize: '1rem' }} />
-            </ListItemIcon>
-          </ListItemButton>
-        </div>
-      ))}
-    </List>
+    <>
+      <List
+        sx={{ width: '100vw', bgcolor: 'background.paper' }}
+        component="nav"
+        aria-labelledby="nested-list-subheader">
+        <ListItemButton
+          sx={{ width: '100%', height: '75px' }}
+          onClick={() => settingfn()}>
+          <ListItemIcon>
+            <Avatar />
+          </ListItemIcon>
+          <ListItemText primary={userName} />
+          <ListItemIcon sx={{ mr: -4.5 }}>
+            <ArrowForwardIosIcon sx={{ fontSize: '1rem' }} />
+          </ListItemIcon>
+        </ListItemButton>
+        <SettingList setContent={setContent} setState={setState} />
+      </List>
+      <SwipeDrawer position="right" state={state} setState={setState}>
+        <Paper sx={{ width: '100vw', height: '100vh' }}>{content}</Paper>
+      </SwipeDrawer>
+    </>
   );
 };
 export default Setting;
