@@ -1,13 +1,16 @@
 import React from 'react';
-import { BottomNavigationAction } from '@mui/material';
+import { BottomNavigationAction, Paper } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import MedicationIcon from '@mui/icons-material/Medication';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import SettingsIcon from '@mui/icons-material/Settings';
 import EventIcon from '@mui/icons-material/Event';
 import { useNavigate } from 'react-router-dom';
+import SwipeDrawer from '../../widgets/drawer/SwipeableDrawer';
+import Medications from '../../pages/medications';
 
 const FooterIcon = () => {
+  const [state, setState] = React.useState<boolean>(false);
   const navigate = useNavigate();
 
   const menuItems = [
@@ -24,7 +27,7 @@ const FooterIcon = () => {
     {
       label: 'Medications',
       icon: <MedicationIcon />,
-      path: '/medications',
+      path: '/',
     },
     {
       label: 'Statistics',
@@ -76,11 +79,18 @@ const FooterIcon = () => {
               color: 'primary.500',
             }}
             onClick={() => {
-              navigate(item.path);
+              item.label === 'Medications'
+                ? setState(true)
+                : navigate(item.path);
             }}
           />
         ),
       )}
+      <SwipeDrawer position="bottom" state={state} setState={setState}>
+        <Paper sx={{ width: '100vw', height: '80vh' }}>
+          <Medications />
+        </Paper>
+      </SwipeDrawer>
     </>
   );
 };
