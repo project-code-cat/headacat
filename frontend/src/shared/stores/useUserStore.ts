@@ -3,7 +3,7 @@ import { create } from 'zustand';
 interface User {
   userNo: number;
   userName: string;
-  userGender: string;
+  userGender: 'M' | 'F';
   userBirth: string;
 }
 
@@ -15,14 +15,14 @@ interface UserState extends User {
   //   userBirth: string;
   // }) => void;
   setUserName: (userName: string) => void;
-  setUserGender: (userGender: string) => void;
+  setUserGender: (userGender: 'M' | 'F') => void;
   setUserBirth: (userBirth: string) => void;
 }
 
 const useUserStore = create<UserState>(set => ({
   userNo: 1,
   userName: 'CHIIKAWA',
-  userGender: 'M',
+  userGender: 'F',
   userBirth: '2024-12-09',
   // getUserInfo: user =>
   //   set(() => ({
