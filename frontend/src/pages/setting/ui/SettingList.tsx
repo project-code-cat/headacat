@@ -3,8 +3,10 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { settingList } from '../lib/SettingList';
-import { Divider } from '@mui/material';
+import { Avatar, Divider } from '@mui/material';
 import { IoIosArrowForward } from 'react-icons/io';
+import useUserStore from '../../../shared/stores/useUserStore';
+import useSettingStore from '../model/useSettingStore';
 
 interface Props {
   setContent: (content: React.ReactNode) => void;
@@ -13,10 +15,13 @@ interface Props {
 
 const SettingList = (props: Props) => {
   const { setContent, setState } = props;
+  const { userName } = useUserStore();
+  const { setKey } = useSettingStore();
 
   const settingfn = (item: any) => {
     setContent(item.content);
     setState(true);
+    setKey(item.key);
   };
 
   return (
@@ -25,10 +30,24 @@ const SettingList = (props: Props) => {
         <div key={i}>
           <Divider />
           <ListItemButton
-            sx={{ width: '100%', height: '65px' }}
+            sx={{
+              width: '100%',
+              height: item.key === 'user' ? '75px' : '65px',
+            }}
             onClick={() => settingfn(item)}>
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText primary={item.label} />
+            {item.key === 'user' ? (
+              <>
+                <ListItemIcon>
+                  <Avatar />
+                </ListItemIcon>
+                <ListItemText primary={userName} />
+              </>
+            ) : (
+              <>
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.label} />
+              </>
+            )}
             <ListItemIcon sx={{ mr: -4.5 }}>
               <IoIosArrowForward size={20} />
             </ListItemIcon>

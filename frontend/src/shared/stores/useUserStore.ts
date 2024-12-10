@@ -8,26 +8,26 @@ interface User {
 }
 
 interface UserState extends User {
-  getUserInfo: (user: {
-    userNo: number;
-    userName: string;
-    userGender: string;
-    userBirth: string;
-  }) => void;
+  // getUserInfo: (user: {
+  //   userNo: number;
+  //   userName: string;
+  //   userGender: string;
+  //   userBirth: string;
+  // }) => void;
   setUserName: (userName: string) => void;
   setUserGender: (userGender: string) => void;
   setUserBirth: (userBirth: string) => void;
 }
 
-const useStore = create<UserState>(set => ({
+const useUserStore = create<UserState>(set => ({
   userNo: 1,
   userName: 'CHIIKAWA',
   userGender: 'M',
   userBirth: '2024-12-09',
-  getUserInfo: user =>
-    set(() => ({
-      ...user,
-    })),
+  // getUserInfo: user =>
+  //   set(() => ({
+  //     ...user,
+  //   })),
   setUserName: userName =>
     set(() => ({
       userName,
@@ -42,4 +42,4 @@ const useStore = create<UserState>(set => ({
     })),
 }));
 
-export default useStore;
+export default useUserStore;
