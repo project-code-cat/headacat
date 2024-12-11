@@ -1,11 +1,18 @@
 import React from 'react';
-import { FaPen } from 'react-icons/fa';
+import {
+  FaCoffee,
+  FaInfo,
+  FaPen,
+  FaQuestion,
+  FaSignOutAlt,
+} from 'react-icons/fa';
 import Pill from '../ui/pill';
 import Default from '../ui/default';
 import Question from '../ui/question';
 import Caffeine from '../ui/caffeine';
 import DevInfo from '../ui/devinfo';
 import User from '../ui/user';
+import { PiPillFill } from 'react-icons/pi';
 
 export const settingList = [
   {
@@ -22,32 +29,32 @@ export const settingList = [
   },
   {
     key: 'pill',
-    label: '두통 관리',
-    icon: <FaPen />,
+    label: '약 관리',
+    icon: <PiPillFill />,
     content: <Pill />,
   },
   {
     key: 'caffeine',
     label: '카페인 관리',
-    icon: <FaPen />,
+    icon: <FaCoffee />,
     content: <Caffeine />,
   },
   {
     key: 'question',
     label: '문의',
-    icon: <FaPen />,
+    icon: <FaQuestion />,
     content: <Question />,
   },
   {
     key: 'devinfo',
     label: '개발자 정보',
-    icon: <FaPen />,
+    icon: <FaInfo />,
     content: <DevInfo />,
   },
   {
     key: 'logout',
     label: '로그아웃',
-    icon: <FaPen />,
+    icon: <FaSignOutAlt />,
     content: <></>,
   },
 ];

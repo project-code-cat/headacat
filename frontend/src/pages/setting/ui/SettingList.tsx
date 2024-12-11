@@ -28,11 +28,11 @@ const SettingList = (props: Props) => {
     <>
       {settingList.map((item, i) => (
         <div key={i}>
-          <Divider />
+          {i !== 0 && <Divider />}
           <ListItemButton
             sx={{
               width: '100%',
-              height: item.key === 'user' ? '75px' : '65px',
+              height: item.key === 'user' ? '80px' : '60px',
             }}
             onClick={() => settingfn(item)}>
             {item.key === 'user' ? (
