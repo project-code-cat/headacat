@@ -6,13 +6,13 @@ import {
   FaQuestion,
   FaSignOutAlt,
 } from 'react-icons/fa';
-import Pill from '../ui/pill';
-import Default from '../ui/default';
-import Question from '../ui/question';
-import Caffeine from '../ui/caffeine';
-import DevInfo from '../ui/devinfo';
-import User from '../ui/user';
+import Caffeine from '../ui/caffeine/Caffeine';
 import { PiPillFill } from 'react-icons/pi';
+import { User } from '../ui/user';
+import { Default } from '../ui/default';
+import { DevInfo } from '../ui/devinfo';
+import { Question } from '../ui/question';
+import { Pill } from '../ui/pill';
 
 export const settingList = [
   {

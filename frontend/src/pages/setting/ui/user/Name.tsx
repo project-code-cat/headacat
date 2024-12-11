@@ -12,14 +12,21 @@ const Name = () => {
           display: 'flex',
           justifyContent: 'center',
           width: '100%',
+          m: 0,
         }}>
         <TextField
-          disabled
+          // disabled
           id="standard-disabled"
           label="이름"
           defaultValue={userName}
           variant="standard"
-          sx={{ width: '80%' }}
+          sx={{
+            width: '120%',
+            m: 0,
+            '& .MuiInputBase-input': {
+              textAlign: 'center', // 입력 텍스트 가운데 정렬
+            },
+          }}
         />
       </Box>
     </>

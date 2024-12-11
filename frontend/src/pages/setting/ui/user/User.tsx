@@ -20,7 +20,7 @@ const User = () => {
         />
         <Box
           component="form"
-          sx={{ '& .MuiTextField-root': { m: 2, width: '25ch' }, m: 3 }}
+          sx={{ '& .MuiTextField-root': { m: 2, width: '40ch' }, m: 3 }}
           noValidate
           autoComplete="off">
           <Name />

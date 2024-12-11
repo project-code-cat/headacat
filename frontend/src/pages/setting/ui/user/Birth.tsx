@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import useUserStore from '../../../../shared/stores/useUserStore';
 import { useImmer } from 'use-immer';
 import CountInput from './CountInput';
@@ -29,40 +29,43 @@ const Birth = () => {
           color: 'grey.500',
           ml: 2,
           variant: 'standard',
-          mt: 4,
+          mt: 5,
+          mb: 2,
         }}>
         생일
       </Typography>
-      <CountInput
-        count={date.year}
-        setCount={(newValue: number) => {
-          setDate(draft => {
-            draft.year = newValue;
-          });
-        }}
-        type="year"
-        changeCount={changeCount}
-      />
-      <CountInput
-        count={date.month}
-        setCount={(newValue: number) => {
-          setDate(draft => {
-            draft.month = newValue;
-          });
-        }}
-        type="month"
-        changeCount={changeCount}
-      />
-      <CountInput
-        count={date.day}
-        setCount={(newValue: number) => {
-          setDate(draft => {
-            draft.day = newValue;
-          });
-        }}
-        type="day"
-        changeCount={changeCount}
-      />
+      <Box sx={{ mx: 3 }}>
+        <CountInput
+          count={date.year}
+          setCount={(newValue: number) => {
+            setDate(draft => {
+              draft.year = newValue;
+            });
+          }}
+          type="year"
+          changeCount={changeCount}
+        />
+        <CountInput
+          count={date.month}
+          setCount={(newValue: number) => {
+            setDate(draft => {
+              draft.month = newValue;
+            });
+          }}
+          type="month"
+          changeCount={changeCount}
+        />
+        <CountInput
+          count={date.day}
+          setCount={(newValue: number) => {
+            setDate(draft => {
+              draft.day = newValue;
+            });
+          }}
+          type="day"
+          changeCount={changeCount}
+        />
+      </Box>
     </>
   );
 };
