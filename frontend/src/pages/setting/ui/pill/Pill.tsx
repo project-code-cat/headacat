@@ -4,12 +4,13 @@ import {
   Button,
   Card,
   CardHeader,
-  IconButton,
+  // IconButton,
   Paper,
 } from '@mui/material';
 import { PiPillFill } from 'react-icons/pi';
-import { MdMoreVert } from 'react-icons/md';
+// import { MdMoreVert } from 'react-icons/md';
 import useSettingStore from '../../model/useSettingStore';
+import { FaRegStar } from "react-icons/fa";
 
 interface PillInfo {
   name: string;
@@ -91,9 +92,22 @@ const Pill = () => {
                 </Box>
               }
               action={
-                <IconButton aria-label="settings">
-                  <MdMoreVert />
-                </IconButton>
+                  <Box
+                      sx={{
+                          // border: '1px solid',
+                          // borderColor: 'primary.main',
+                          // borderRadius: '50%',
+                          width: 40,
+                          height: 40,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          mt:0.3,
+                          mb:0,
+
+                      }}>
+                      <FaRegStar size={18} />
+                  </Box>
               }
               title={pill.name}
               subheader={`마지막 복용: ${pill.lastTaken}`}
