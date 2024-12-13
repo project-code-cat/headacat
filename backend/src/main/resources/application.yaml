@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: headacat
+
+  # using mysql
+  datasource:
+    url: jdbc:log4jdbc:mysql://localhost:3306/tasks?serverTimezone=Asia/Seoul
+    username: root
+    password: jj20190403*
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    hikari:
+      maximum-pool-size: 10
+      jdbc-url: jdbc:log4jdbc:mysql://localhost:3306/tasks?serverTimezone=Asia/Seoul
+
+  # using jpa
+  jpa:
+    show-sql: true
+    database: mysql
+    hibernate:
+      ddl-auto: none
+
+# cors
+cors:
+  allowed-origin: http://localhost:3000
+
+# log4jdbc
+logging:
+  level:
+    jdbc:
+      audit: OFF
+      resultset: OFF
+      resultsettable: DEBUG
+      connection: OFF
+      sqlonly: DEBUG
+      sqltiming: DEBUG
+
+# using swagger
+springdoc:
+  swagger-ui:
+    path: /api-documentation
+    groups-order: DESC
+    tags-sorter: alpha
+    operations-sorter: method
+    disable-swagger-default-url: true
+    display-request-duration: true
+    default-model-expand-depth: 2
+    default-models-expand-depth: 2
+  show-login-endpoint: true
+  show-actuator: true
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  model-and-view-allowed: true
+  paths-to-match: /api/**
