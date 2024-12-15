@@ -4,7 +4,7 @@ import AppLayout from '../frame/AppLayout';
 import Header from '../frame/Header';
 import ContentComponent from '../frame/ContentComponent';
 import Footer from '../frame/Footer';
-import { ColorModeProvider } from '../theme/ColorModeProvider';
+import { ColorModeProvider } from '../../shared/theme/ColorModeProvider';
 
 interface Props {
   children: React.ReactNode;

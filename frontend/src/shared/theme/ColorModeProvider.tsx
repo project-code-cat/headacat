@@ -1,7 +1,7 @@
 import React from 'react';
 import { createContext, useState, useMemo } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { palette } from './theme';
+import { palette } from './theme.ts';
 
 export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 

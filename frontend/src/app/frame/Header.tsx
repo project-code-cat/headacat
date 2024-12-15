@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AppBar, Box, IconButton, Toolbar } from '@mui/material';
 import { GoNorthStar } from 'react-icons/go';
-import { ColorModeContext } from '../theme/ColorModeProvider';
+import { ColorModeContext } from '../../shared/theme/ColorModeProvider';
 import { FaCalendarDay } from 'react-icons/fa6';
 import { VscColorMode } from 'react-icons/vsc';
 
