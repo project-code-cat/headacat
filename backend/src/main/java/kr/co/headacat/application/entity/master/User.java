@@ -23,6 +23,13 @@ public class User {
     @Column(length = 100, nullable = false, unique = true)
     private String email;
 
+    @Column(length = 100, nullable = false, unique = true)
+    private String username;
+
+    //TODO: 추후 수정이 필요한지는 몰루?
+    @Column
+    private String provider;
+
     @Column
     private Timestamp deletedAt;
 

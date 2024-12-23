@@ -19,6 +19,19 @@ spring:
     hibernate:
       ddl-auto: none
 
+  # TODO: application 설정 확인해보기.
+  # security
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT}
+            client-secret: ${GOOGLE_SECRET}
+            scope:
+              -email
+              -profile
+
 # cors
 cors:
   allowed-origin: http://localhost:3000
