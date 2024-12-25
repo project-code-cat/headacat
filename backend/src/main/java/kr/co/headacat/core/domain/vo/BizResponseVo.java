@@ -2,6 +2,7 @@ package kr.co.headacat.core.domain.vo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import kr.co.headacat.core.baseClass.BaseVo;
 import lombok.*;
 
 import java.io.Serial;

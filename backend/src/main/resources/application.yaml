@@ -28,9 +28,21 @@ spring:
           google:
             client-id: ${GOOGLE_CLIENT}
             client-secret: ${GOOGLE_SECRET}
+            client-authentication-method: POST
+            redirect-uri: ""
+            client-name: google
             scope:
               -email
               -profile
+          apple:
+            client-id: ""
+            client-secret: ""
+            client-authentication-method: POST
+            redirect-uri: ""
+            client-name: apple
+            scope:
+              - name
+              - email
 
 # cors
 cors:

@@ -1,7 +1,8 @@
 package kr.co.headacat.core.config;
 
-import kr.co.headacat.application.user.handler.OAuth2LoginSuccessHandler;
-import kr.co.headacat.application.user.service.OAuth2UserService;
+import kr.co.headacat.application.common.enums.Role;
+import kr.co.headacat.application.common.user.handler.OAuth2LoginSuccessHandler;
+import kr.co.headacat.application.common.user.service.OAuth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -65,6 +66,10 @@ public class SecurityConfig {
                                 new AntPathRequestMatcher("/"),
                                 new AntPathRequestMatcher("/api/auth/auth2-success")
                         ).permitAll()
+
+                        .requestMatchers("/api/**").hasAnyRole(Role.assignees())
+                        .requestMatchers("/api/admin/**").hasAnyRole(Role.administrators())
+                        .requestMatchers("/api/**/admin/**").hasAnyRole(Role.administrators())
 
                         .anyRequest().authenticated())
 
